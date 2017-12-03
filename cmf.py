@@ -3,10 +3,10 @@ import shutil
 
 from sys import argv
 
-base_path = argv[1]
+base_path = argv[1] # Path to the folder containing tracks.
 
 def get_tracks_dict():
-	""" Collects and returns a tracks dict in the folder. """
+	""" Collects and returns a dict {'author': '[author's track, ...]'} by tracks in a folder. """
 	tracks_dict = {}
 	with os.scandir(base_path) as files:
 		for track in files:
@@ -20,7 +20,7 @@ def get_tracks_dict():
 
 
 def create_folders_by_tracks_dict(tracks_dict):
-	""" Creates folders which names are author's name. """
+	""" Creates folders whose names are author's names. """
 	os.chdir(base_path)
 	for author in tracks_dict:
 		author = author.strip()
@@ -32,7 +32,6 @@ def create_folders_by_tracks_dict(tracks_dict):
 
 def main():
 	tracks_dict = get_tracks_dict()
-	print(tracks_dict)
 	create_folders_by_tracks_dict(tracks_dict)
 
 
