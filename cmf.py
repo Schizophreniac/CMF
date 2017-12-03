@@ -23,7 +23,6 @@ def create_folders_by_tracks_dict(tracks_dict):
 	""" Creates folders whose names are author's names. """
 	os.chdir(base_path)
 	for author in tracks_dict:
-		author = author.strip()
 		if not os.path.exists(author):
 			os.mkdir(author)
 		for track in tracks_dict[author]:
